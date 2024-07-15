@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 
-import { Link } from "~/components/ui/link";
+import { LinkButton } from "~/components/ui/link-button";
 import { useOptionalUser } from "~/utils";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
@@ -32,11 +32,13 @@ export default function Index() {
               </p>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
                 {user ? (
-                  <Link to="/notes">View Notes for {user.email}</Link>
+                  <LinkButton to="/notes">
+                    View Notes for {user.email}
+                  </LinkButton>
                 ) : (
                   <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
-                    <Link to="/join">Sign up</Link>
-                    <Link to="/login">Log In</Link>
+                    <LinkButton to="/join">Sign up</LinkButton>
+                    <LinkButton to="/login">Log In</LinkButton>
                   </div>
                 )}
               </div>
@@ -52,7 +54,7 @@ export default function Index() {
         </div>
 
         <div className="mx-auto mt-16 max-w-7xl text-center">
-          <Link to="/posts">Blog Posts</Link>
+          <LinkButton to="/posts">Blog Posts</LinkButton>
         </div>
 
         <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">

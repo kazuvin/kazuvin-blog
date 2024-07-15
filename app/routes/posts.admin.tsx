@@ -1,7 +1,7 @@
 import { json, LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 
-import { Link } from "~/components/ui/link";
+import { LinkButton } from "~/components/ui/link-button";
 import { getPosts } from "~/models/post.server";
 import { getUserId } from "~/session.server";
 
@@ -25,7 +25,7 @@ export default function PostAdmin() {
           <ul>
             {posts.map((post) => (
               <li key={post.slug}>
-                <Link to={post.slug}>{post.title}</Link>
+                <LinkButton to={post.slug}>{post.title}</LinkButton>
               </li>
             ))}
           </ul>

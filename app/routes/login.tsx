@@ -8,7 +8,7 @@ import { Form, useActionData, useSearchParams } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
 import { Button } from "~/components/ui/button";
-import { Link } from "~/components/ui/link";
+import { LinkButton } from "~/components/ui/link-button";
 import { verifyLogin } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
 import { safeRedirect, validateEmail } from "~/utils";
@@ -165,14 +165,14 @@ export default function LoginPage() {
             </div>
             <div className="text-center text-sm text-gray-500">
               Don&apos;t have an account?{" "}
-              <Link
+              <LinkButton
                 to={{
                   pathname: "/join",
                   search: searchParams.toString(),
                 }}
               >
                 Sign up
-              </Link>
+              </LinkButton>
             </div>
           </div>
         </Form>

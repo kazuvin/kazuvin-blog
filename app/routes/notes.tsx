@@ -3,7 +3,7 @@ import { json } from "@remix-run/node";
 import { Form, NavLink, Outlet, useLoaderData } from "@remix-run/react";
 
 import { Button } from "~/components/ui/button";
-import { Link } from "~/components/ui/link";
+import { LinkButton } from "~/components/ui/link-button";
 import { getNoteListItems } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 import { useUser } from "~/utils";
@@ -26,7 +26,7 @@ export default function NotesPage() {
     <div className="flex h-full min-h-screen flex-col">
       <header className="flex items-center justify-between bg-slate-800 p-4 text-white">
         <h1 className="text-3xl font-bold">
-          <Link to=".">Notes</Link>
+          <LinkButton to=".">Notes</LinkButton>
         </h1>
         <p>{user.email}</p>
         <Form action="/logout" method="post">
@@ -36,7 +36,7 @@ export default function NotesPage() {
 
       <main className="flex h-full bg-white">
         <div className="h-full w-80 border-r bg-gray-50">
-          <Link to="new">+ New Note</Link>
+          <LinkButton to="new">+ New Note</LinkButton>
 
           <hr />
 
