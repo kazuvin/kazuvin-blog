@@ -10,6 +10,7 @@ import {
 import { Suspense } from "react";
 import invariant from "tiny-invariant";
 
+import { Button } from "~/components/ui/button";
 import { deleteNote, getNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 
@@ -59,12 +60,7 @@ export default function NoteDetailsPage() {
       </Suspense>
       <hr className="my-4" />
       <Form method="post">
-        <button
-          type="submit"
-          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-400"
-        >
-          Delete
-        </button>
+        <Button type="submit">Delete</Button>
       </Form>
     </div>
   );

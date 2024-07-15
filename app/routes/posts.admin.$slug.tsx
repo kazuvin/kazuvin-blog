@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import invariant from "tiny-invariant";
 
+import { Button } from "~/components/ui/button";
 import { deletePost, getPost, updatePost } from "~/models/post.server";
 
 /* ------------------------------------------------------- */
@@ -106,25 +107,23 @@ export default function AdminSlug() {
         />
       </p>
       <p className="flex gap-2 justify-end">
-        <button
+        <Button
           type="submit"
           name="actionType"
           value="update"
-          className="rounded bg-blue-500 py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400 disabled:bg-blue-300"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Updating..." : "Update Post"}
-        </button>
+        </Button>
 
-        <button
+        <Button
           type="submit"
           name="actionType"
           value="delete"
-          className="rounded bg-red-600 py-2 px-4 text-white hover:bg-red-600 focus:bg-red-400 disabled:bg-red-300"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Deleting..." : "Delete Post"}
-        </button>
+        </Button>
       </p>
     </Form>
   );
