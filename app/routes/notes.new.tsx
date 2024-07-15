@@ -3,6 +3,7 @@ import { json, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
+import { Button } from "~/components/ui/button";
 import { createNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 
@@ -101,12 +102,7 @@ export default function NewNotePage() {
       </div>
 
       <div className="text-right">
-        <button
-          type="submit"
-          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:bg-blue-400"
-        >
-          Save
-        </button>
+        <Button type="submit">Save</Button>
       </div>
     </Form>
   );
