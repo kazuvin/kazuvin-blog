@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { VariantProps } from "class-variance-authority";
+import { type VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
 
 import { cn } from "~/lib/utils";

@@ -1,6 +1,7 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
+import { Link } from "~/components/ui/link";
 import { LinkButton } from "~/components/ui/link-button";
 import { getPosts } from "~/models/post.server";
 import { getUser } from "~/session.server";
@@ -22,7 +23,7 @@ export default function Posts() {
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
-            <LinkButton to={post.slug}>{post.title}</LinkButton>
+            <Link to={post.slug}>{post.title}</Link>
           </li>
         ))}
       </ul>
