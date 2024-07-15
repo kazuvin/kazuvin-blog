@@ -6,6 +6,8 @@ import { useEffect, useRef } from "react";
 import { createNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
 
+/* ------------------------------------------------------- */
+
 export const action = async ({ request }: ActionFunctionArgs) => {
   const userId = await requireUserId(request);
 
@@ -31,6 +33,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
   return redirect(`/notes/${note.id}`);
 };
+
+/* ------------------------------------------------------- */
 
 export default function NewNotePage() {
   const actionData = useActionData<typeof action>();
