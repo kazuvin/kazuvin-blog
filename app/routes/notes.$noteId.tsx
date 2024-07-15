@@ -26,7 +26,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   //   throw new Response("Not Found", { status: 404 });
   // }
 
-  return defer({ note, test });
+  return defer({ note });
 };
 
 /* ------------------------------------------------------- */
