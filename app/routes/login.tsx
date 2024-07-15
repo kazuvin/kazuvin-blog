@@ -4,10 +4,11 @@ import type {
   MetaFunction,
 } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
-import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
+import { Form, useActionData, useSearchParams } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
 import { Button } from "~/components/ui/button";
+import { Link } from "~/components/ui/link";
 import { verifyLogin } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
 import { safeRedirect, validateEmail } from "~/utils";
@@ -165,7 +166,6 @@ export default function LoginPage() {
             <div className="text-center text-sm text-gray-500">
               Don&apos;t have an account?{" "}
               <Link
-                className="text-blue-500 underline"
                 to={{
                   pathname: "/join",
                   search: searchParams.toString(),

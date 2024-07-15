@@ -1,6 +1,7 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
+import { Link } from "~/components/ui/link";
 import { getPosts } from "~/models/post.server";
 import { getUser } from "~/session.server";
 
@@ -17,17 +18,11 @@ export default function Posts() {
   return (
     <main>
       <h1>Posts</h1>
-      {user ? (
-        <Link to="admin" className="text-red-600 underline">
-          Admin
-        </Link>
-      ) : null}
+      {user ? <Link to="admin">Admin</Link> : null}
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link to={post.slug} className="text-blue-600 underline">
-              {post.title}
-            </Link>
+            <Link to={post.slug}>{post.title}</Link>
           </li>
         ))}
       </ul>
