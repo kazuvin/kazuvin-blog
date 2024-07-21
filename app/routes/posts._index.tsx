@@ -1,6 +1,7 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
+import { DefaultLayout } from "~/components/layouts/default-layout";
 import { Link } from "~/components/ui/link";
 import { LinkButton } from "~/components/ui/link-button";
 import { getPosts } from "~/models/post.server";
@@ -17,16 +18,18 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Posts() {
   const { posts, user } = useLoaderData<typeof loader>();
   return (
-    <main>
-      <h1>Posts</h1>
-      {user ? <LinkButton to="admin">Admin</LinkButton> : null}
-      <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link to={post.slug}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <DefaultLayout>
+      <div className="container relative">
+        <h1>Posts</h1>
+        {user ? <LinkButton to="admin">Admin</LinkButton> : null}
+        <ul>
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <Link to={post.slug}>{post.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </DefaultLayout>
   );
 }
