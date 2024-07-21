@@ -43,7 +43,7 @@ export default function Index() {
                       <Link to="/join">Sign up</Link>
                     </Button>
                     <Button asChild>
-                      <Link to="/login">Sign up</Link>
+                      <Link to="/login">Log In</Link>
                     </Button>
                   </div>
                 )}
