@@ -1,9 +1,7 @@
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 
 import { DefaultLayout } from "~/components/layouts/default-layout";
-import { Link } from "~/components/ui/link";
-import { LinkButton } from "~/components/ui/link-button";
 import { getPosts } from "~/models/post.server";
 import { getUser } from "~/session.server";
 
@@ -21,7 +19,7 @@ export default function Posts() {
     <DefaultLayout>
       <div className="container relative">
         <h1>Posts</h1>
-        {user ? <LinkButton to="admin">Admin</LinkButton> : null}
+        {user ? <Link to="admin">Admin</Link> : null}
         <ul>
           {posts.map((post) => (
             <li key={post.slug}>

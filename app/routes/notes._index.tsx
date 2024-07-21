@@ -1,4 +1,4 @@
-import { Link } from "~/components/ui/link";
+import { Link } from "@remix-run/react";
 
 export default function NoteIndexPage() {
   return (

@@ -1,7 +1,6 @@
 import { json, LoaderFunctionArgs, redirect } from "@remix-run/node";
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Link, Outlet, useLoaderData } from "@remix-run/react";
 
-import { Link } from "~/components/ui/link";
 import { getPosts } from "~/models/post.server";
 import { getUserId } from "~/session.server";
 
