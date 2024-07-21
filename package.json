@@ -49,6 +49,7 @@
     "@chromatic-com/storybook": "^1.6.1",
     "@faker-js/faker": "^8.4.1",
     "@remix-run/dev": "^2.10.2",
+    "@remix-run/testing": "^2.10.3",
     "@storybook/addon-essentials": "^8.2.5",
     "@storybook/addon-interactions": "^8.2.5",
     "@storybook/addon-links": "^8.2.5",

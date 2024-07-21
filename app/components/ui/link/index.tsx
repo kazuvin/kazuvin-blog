@@ -4,14 +4,18 @@ import { ComponentProps } from "react";
 
 import { cn } from "~/lib/utils";
 
+const variant = {
+  default: "text-primary underline-offset-4 hover:underline",
+};
+
+const size = {
+  default: "font-mediam",
+};
+
 const linkVariants = cva(undefined, {
   variants: {
-    variant: {
-      default: "text-primary underline-offset-4 hover:underline",
-    },
-    size: {
-      default: "font-mediam",
-    },
+    variant,
+    size,
   },
   defaultVariants: {
     variant: "default",
@@ -23,7 +27,7 @@ export interface LinkProps
   extends ComponentProps<typeof RemixLink>,
     VariantProps<typeof linkVariants> {}
 
-export function Link({ className, variant, size, ...props }: LinkProps) {
+function Link({ className, variant, size, ...props }: LinkProps) {
   return (
     <RemixLink
       className={cn(linkVariants({ variant, size, className }))}
@@ -31,3 +35,5 @@ export function Link({ className, variant, size, ...props }: LinkProps) {
     />
   );
 }
+
+export { Link, linkVariants, variant as linkVariant, size as linkSize };
