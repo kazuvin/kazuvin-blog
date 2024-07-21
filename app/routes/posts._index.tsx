@@ -18,7 +18,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Posts() {
   const { posts, user } = useLoaderData<typeof loader>();
   return (
-    <DefaultLayout isLoggedIn={!!user}>
+    <DefaultLayout>
       <div className="container relative">
         <h1>Posts</h1>
         {user ? <LinkButton to="admin">Admin</LinkButton> : null}

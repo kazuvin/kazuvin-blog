@@ -1,20 +1,13 @@
-import { Form } from "@remix-run/react";
 import { ReactNode } from "react";
 
-import { Button } from "~/components/ui/button";
 import { Link } from "~/components/ui/link";
-import { LinkButton } from "~/components/ui/link-button";
 import { NavLink } from "~/components/ui/nav-link";
 
 export interface DefaultLayoutProps {
-  isLoggedIn: boolean;
   children: ReactNode;
 }
 
-export function DefaultLayout({
-  isLoggedIn = false,
-  children,
-}: DefaultLayoutProps) {
+export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <div className="relative flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur">
@@ -30,19 +23,6 @@ export function DefaultLayout({
             <NavLink to="/works">Works</NavLink>
             <NavLink to="/posts">Posts</NavLink>
           </nav>
-          <div className="flex flex-1 justify-end">
-            {isLoggedIn ? (
-              <Form action="/logout" method="post">
-                <Button type="submit" size="sm">
-                  Logout
-                </Button>
-              </Form>
-            ) : (
-              <LinkButton size="sm" to="/login">
-                Log In
-              </LinkButton>
-            )}
-          </div>
         </div>
       </header>
       <main className="flex-1">{children}</main>
