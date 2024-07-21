@@ -1,9 +1,9 @@
-import { LinkButton } from "~/components/ui/link-button";
+import { Link } from "@remix-run/react";
 
 export default function AdminIndex() {
   return (
     <p>
-      <LinkButton to="new">Create a New Post</LinkButton>
+      <Link to="new">Create a New Post</Link>
     </p>
   );
 }

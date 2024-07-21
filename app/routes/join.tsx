@@ -4,11 +4,10 @@ import type {
   MetaFunction,
 } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
-import { Form, useActionData, useSearchParams } from "@remix-run/react";
+import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
 import { useEffect, useRef } from "react";
 
 import { Button } from "~/components/ui/button";
-import { Link } from "~/components/ui/link";
 import { createUser, getUserByEmail } from "~/models/user.server";
 import { createUserSession, getUserId } from "~/session.server";
 import { safeRedirect, validateEmail } from "~/utils";
@@ -156,14 +155,16 @@ export default function Join() {
           <div className="flex items-center justify-center">
             <div className="text-center text-sm text-gray-500">
               Already have an account?{" "}
-              <Link
-                to={{
-                  pathname: "/login",
-                  search: searchParams.toString(),
-                }}
-              >
-                Log in
-              </Link>
+              <Button asChild>
+                <Link
+                  to={{
+                    pathname: "/login",
+                    search: searchParams.toString(),
+                  }}
+                >
+                  Log in
+                </Link>
+              </Button>
             </div>
           </div>
         </Form>
