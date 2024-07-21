@@ -6,10 +6,12 @@ import { cn } from "~/lib/utils";
 
 const variant = {
   default: "text-primary underline-offset-4 hover:underline",
+  none: undefined,
 };
 
 const size = {
   default: "font-mediam",
+  none: undefined,
 };
 
 const linkVariants = cva(undefined, {

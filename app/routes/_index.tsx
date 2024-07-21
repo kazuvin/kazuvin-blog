@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 
+import { DefaultLayout } from "~/components/layouts/default-layout";
 import { LinkButton } from "~/components/ui/link-button";
 import { useOptionalUser } from "~/utils";
 
@@ -8,8 +9,8 @@ export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
 export default function Index() {
   const user = useOptionalUser();
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
-      <div className="relative sm:pb-16 sm:pt-8">
+    <DefaultLayout isLoggedIn={!!user}>
+      <div className="container relative">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
             <div className="absolute inset-0">
@@ -127,6 +128,6 @@ export default function Index() {
           </div>
         </div>
       </div>
-    </main>
+    </DefaultLayout>
   );
 }
