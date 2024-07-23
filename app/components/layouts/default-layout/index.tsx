@@ -2,6 +2,7 @@ import { Link, NavLink } from "@remix-run/react";
 import { ReactNode } from "react";
 
 import { Button } from "~/components/ui/button";
+import { ModeToggle } from "~/components/ui/mode-toggle";
 
 export interface DefaultLayoutProps {
   children: ReactNode;
@@ -18,7 +19,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
           >
             Kazuvin
           </Link>
-          <nav className="flex flex-1 justify-end items-center gap-4 text-sm lg:gap-6">
+          <nav className="flex items-center gap-4 text-sm lg:gap-6">
             <Button
               variant="navlink"
               size="none"
@@ -36,6 +37,9 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
               <NavLink to="/posts">Posts</NavLink>
             </Button>
           </nav>
+          <div className="flex flex-1 justify-end items-center">
+            <ModeToggle />
+          </div>
         </div>
       </header>
       <main className="flex-1">{children}</main>
