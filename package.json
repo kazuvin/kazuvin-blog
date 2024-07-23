@@ -28,6 +28,7 @@
   ],
   "dependencies": {
     "@prisma/client": "^5.14.0",
+    "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@remix-run/css-bundle": "2.10.3",
     "@remix-run/node": "2.10.3",
