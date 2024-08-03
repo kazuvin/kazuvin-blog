@@ -36,6 +36,14 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
             >
               <NavLink to="/posts">Posts</NavLink>
             </Button>
+            <Button
+              variant="navlink"
+              size="none"
+              className="[&.active]:text-foreground [&.active]:hover:text-foreground/80"
+              asChild
+            >
+              <NavLink to="/scraps">Scraps</NavLink>
+            </Button>
           </nav>
           <div className="flex flex-1 justify-end items-center">
             <ModeToggle />
