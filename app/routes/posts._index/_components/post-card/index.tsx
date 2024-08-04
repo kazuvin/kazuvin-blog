@@ -22,7 +22,7 @@ export default function PostCard({
           <img
             alt={title}
             src={eyecatchUrl}
-            className="rounded aspect-video w-full h-36"
+            className="rounded w-full h-full object-cover"
           />
         </header>
         <div className="flex flex-col">

@@ -22,7 +22,7 @@ export default function Posts() {
             fallback={Array(4)
               .fill(null)
               .map((_, index) => (
-                <Skelton key={index} className="w-full h-36" />
+                <Skelton key={index} className="w-full h-full aspect-[16/9]" />
               ))}
           >
             <Await resolve={postsPromise}>
