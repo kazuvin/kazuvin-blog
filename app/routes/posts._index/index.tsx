@@ -11,7 +11,7 @@ export default function Posts() {
   const { posts, user } = useLoaderData<typeof loader>();
   return (
     <DefaultLayout>
-      <div className="container relative pt-12">
+      <div className="container relative py-12">
         <h1 id="posts" className="text-5xl font-bold mb-6">
           <Link to="#posts">Posts</Link>
         </h1>
@@ -22,7 +22,7 @@ export default function Posts() {
               key={post.slug}
               to={post.slug}
               title={post.title}
-              updatedAt={post.updatedAt}
+              createdAt={post.createdAt}
             />
           ))}
         </section>

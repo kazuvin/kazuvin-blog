@@ -1,6 +1,8 @@
 import { useLoaderData } from "@remix-run/react";
 
+import sampleImage from "~/assets/images/post-sample-image.jpg";
 import { DefaultLayout } from "~/components/layouts/default-layout";
+import { format } from "~/lib/date/format";
 
 import { postsSlugLoader } from "./loader";
 
@@ -10,10 +12,21 @@ export default function PostSlug() {
   const { html, post } = useLoaderData<typeof loader>();
   return (
     <DefaultLayout>
-      <div className="container relative">
-        <h1 className="my-6 border-b-2 text-center text-3xl">{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+      <article className="px-8 py-12 max-w-screen-md mx-auto relative">
+        <header className="mb-20 flex flex-col items-center gap-12">
+          <time dateTime={post.createdAt}>
+            {format(new Date(post.createdAt), "yyyy/MM/dd")}
+          </time>
+          <h1 className="text-2xl font-bold text-center lg:text-5xl lg:leading-normal">
+            {post.title}
+          </h1>
+          <img alt={post.title} src={sampleImage} className="rounded" />
+        </header>
+        <div
+          dangerouslySetInnerHTML={{ __html: html }}
+          className="prose dark:prose-invert"
+        />
+      </article>
     </DefaultLayout>
   );
 }

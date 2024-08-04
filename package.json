@@ -61,6 +61,7 @@
     "@storybook/react": "^8.2.5",
     "@storybook/react-vite": "^8.2.5",
     "@storybook/test": "^8.2.5",
+    "@tailwindcss/typography": "^0.5.13",
     "@testing-library/cypress": "^10.0.2",
     "@testing-library/jest-dom": "^6.4.5",
     "@types/bcryptjs": "^2.4.6",

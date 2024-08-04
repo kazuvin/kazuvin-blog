@@ -6,10 +6,10 @@ import { format } from "~/lib/date/format";
 export interface PostCardProps {
   to: string;
   title: string;
-  updatedAt: string;
+  createdAt: string;
 }
 
-export default function PostCard({ to, title, updatedAt }: PostCardProps) {
+export default function PostCard({ to, title, createdAt }: PostCardProps) {
   return (
     <article className="transition-transform hover:-translate-y-1">
       <Link to={to}>
@@ -17,8 +17,8 @@ export default function PostCard({ to, title, updatedAt }: PostCardProps) {
           <img alt={title} src={sampleImage} className="rounded" />
         </header>
         <div className="flex flex-col">
-          <time dateTime={updatedAt} className="text-xs text-foreground/80">
-            {format(new Date(updatedAt), "yyyy年MM月dd日")}
+          <time dateTime={createdAt} className="text-xs text-foreground/80">
+            {format(new Date(createdAt), "yyyy年MM月dd日")}
           </time>
           <h3 className="font-semibold">{title}</h3>
         </div>
