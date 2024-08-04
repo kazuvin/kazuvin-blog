@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
 
-import sampleImage from "~/assets/images/post-sample-image.jpg";
 import { DefaultLayout } from "~/components/layouts/default-layout";
 import { format } from "~/lib/date/format";
 
@@ -20,7 +19,11 @@ export default function PostSlug() {
           <h1 className="text-2xl font-bold text-center lg:text-5xl lg:leading-normal">
             {post.title}
           </h1>
-          <img alt={post.title} src={sampleImage} className="rounded" />
+          <img
+            alt={post.title}
+            src={post.eyecatch.url}
+            className="rounded aspect-video w-full h-90"
+          />
         </header>
         <div
           dangerouslySetInnerHTML={{ __html: html }}

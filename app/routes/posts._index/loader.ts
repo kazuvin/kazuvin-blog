@@ -1,8 +1,7 @@
-import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { defer } from "@remix-run/node";
 
-import { getPosts } from "~/models/post.server";
-import { getUser } from "~/session.server";
+import { getPosts } from "~/models/post/index.server";
 
-export const postsLoader = async ({ request }: LoaderFunctionArgs) => {
-  return json({ posts: await getPosts(), user: await getUser(request) });
+export const postsLoader = async () => {
+  return defer({ postsPromise: getPosts() });
 };

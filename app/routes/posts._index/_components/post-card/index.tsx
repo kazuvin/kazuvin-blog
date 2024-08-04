@@ -1,20 +1,29 @@
 import { Link } from "@remix-run/react";
 
-import sampleImage from "~/assets/images/post-sample-image.jpg";
 import { format } from "~/lib/date/format";
 
 export interface PostCardProps {
   to: string;
   title: string;
+  eyecatchUrl: string;
   createdAt: string;
 }
 
-export default function PostCard({ to, title, createdAt }: PostCardProps) {
+export default function PostCard({
+  to,
+  title,
+  eyecatchUrl,
+  createdAt,
+}: PostCardProps) {
   return (
     <article className="transition-transform hover:-translate-y-1">
       <Link to={to}>
         <header className="mb-3 aspect-[16/9]">
-          <img alt={title} src={sampleImage} className="rounded" />
+          <img
+            alt={title}
+            src={eyecatchUrl}
+            className="rounded w-full h-full object-cover"
+          />
         </header>
         <div className="flex flex-col">
           <time dateTime={createdAt} className="text-xs text-foreground/80">
