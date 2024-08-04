@@ -1,6 +1,8 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Await, Link, useLoaderData } from "@remix-run/react";
+import { Suspense } from "react";
 
 import { DefaultLayout } from "~/components/layouts/default-layout";
+import Skelton from "~/components/ui/skelton";
 
 import PostCard from "./_components/post-card";
 import { postsLoader } from "./loader";
@@ -8,23 +10,35 @@ import { postsLoader } from "./loader";
 export const loader = postsLoader;
 
 export default function Posts() {
-  const { posts, user } = useLoaderData<typeof loader>();
+  const { postsPromise } = useLoaderData<typeof loader>();
   return (
     <DefaultLayout>
       <div className="container relative py-12">
-        <h1 id="posts" className="text-5xl font-bold mb-6">
+        <h1 id="posts" className="text-5xl font-bold mb-12">
           <Link to="#posts">Posts</Link>
         </h1>
-        {user ? <Link to="admin">Admin</Link> : null}
         <section className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-3 lg:grid-cols-4">
-          {posts.map((post) => (
-            <PostCard
-              key={post.slug}
-              to={post.slug}
-              title={post.title}
-              createdAt={post.createdAt}
-            />
-          ))}
+          <Suspense
+            fallback={Array(4)
+              .fill(null)
+              .map((_, index) => (
+                <Skelton key={index} className="w-full h-36" />
+              ))}
+          >
+            <Await resolve={postsPromise}>
+              {(posts) =>
+                posts.contents.map((post) => (
+                  <PostCard
+                    key={post.id}
+                    to={post.id}
+                    title={post.title}
+                    eyecatchUrl={post.eyecatch.url}
+                    createdAt={post.createdAt}
+                  />
+                ))
+              }
+            </Await>
+          </Suspense>
         </section>
       </div>
     </DefaultLayout>
