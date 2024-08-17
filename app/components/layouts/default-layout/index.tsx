@@ -11,8 +11,8 @@ export interface DefaultLayoutProps {
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <div className="relative flex min-h-screen flex-col bg-background">
-      <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur">
-        <div className="container flex h-14 max-w-screen-2xl items-center">
+      <header className="sticky top-0 z-50 w-full border-border/40">
+        <div className="container flex h-14 mx-auto items-center">
           <Link
             to="/"
             className="mr-4 font-bold text-lg text-primary hover:text-primary/80 lg:mr-6"
