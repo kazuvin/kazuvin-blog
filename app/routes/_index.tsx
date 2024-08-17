@@ -4,7 +4,6 @@ import { Link } from "@remix-run/react";
 import avatar from "~/assets/images/avatar.jpg";
 import { DefaultLayout } from "~/components/layouts/default-layout";
 import Hiri from "~/components/svg/hiri";
-import Reflection from "~/components/svg/reflection";
 import Unit from "~/components/svg/union";
 import {
   Card,
@@ -57,9 +56,8 @@ export default function Index() {
           </Card>
           <Card
             as="section"
-            className="relative flex flex-col col-span-2 h-80 overflow-hidden backdrop-blur bg-background/30 cursor-pointer transition-transform hover:-translate-y-1"
+            className="flex flex-col col-span-2 h-80 overflow-hidden backdrop-blur bg-background/30 cursor-pointer transition-transform hover:-translate-y-1"
           >
-            <Reflection className="absolute inset-0 w-full h-full z-[-1]" />
             <Link to="/posts" className="flex-1">
               <CardHeader>
                 <CardTitle>Posts</CardTitle>
