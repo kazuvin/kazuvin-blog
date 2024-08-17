@@ -3,9 +3,9 @@ import { Link } from "@remix-run/react";
 
 import avatar from "~/assets/images/avatar.jpg";
 import { DefaultLayout } from "~/components/layouts/default-layout";
-import ChaosGrid from "~/components/svg/chaos-grid";
 import Hiri from "~/components/svg/hiri";
 import Reflection from "~/components/svg/reflection";
+import Unit from "~/components/svg/union";
 import {
   Card,
   CardContent,
@@ -19,7 +19,7 @@ export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
 export default function Index() {
   return (
     <DefaultLayout>
-      <ChaosGrid
+      <Unit
         className="fixed w-full h-full inset-0 opacity-30"
         preserveAspectRatio="none"
       />
