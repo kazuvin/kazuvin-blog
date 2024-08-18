@@ -2,6 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
 import avatar from "~/assets/images/avatar.jpg";
+import Container from "~/components/layouts/container";
 import { DefaultLayout } from "~/components/layouts/default-layout";
 import Hiri from "~/components/svg/hiri";
 import Unit from "~/components/svg/union";
@@ -22,22 +23,23 @@ export default function Index() {
         className="fixed w-full h-full inset-0 opacity-30"
         preserveAspectRatio="none"
       />
-      <div className="container relative py-12 z-0">
+      <Container className="relative py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <Card
             as="section"
             className="flex flex-col justify-center col-span-1 h-80 backdrop-blur bg-background/30 cursor-pointer transition-transform z-10 hover:-translate-y-1"
           >
-            <Link to="/about" className="flex-1">
-              <CardHeader className="flex justify-center items-center">
-                <img
-                  src={avatar}
-                  alt="kazuvin"
-                  className="w-40 h-40 rounded-full object-cover mb-6"
-                />
-                <CardTitle>Kazuvin</CardTitle>
-                <CardDescription>Developer / Composer</CardDescription>
-              </CardHeader>
+            <Link
+              to="/about"
+              className="flex justify-center items-center flex-col flex-1"
+            >
+              <img
+                src={avatar}
+                alt="kazuvin"
+                className="w-40 h-40 rounded-full object-cover mb-6"
+              />
+              <CardTitle>Kazuvin</CardTitle>
+              <CardDescription>Developer / Composer</CardDescription>
             </Link>
           </Card>
           <Card
@@ -77,7 +79,7 @@ export default function Index() {
             </Link>
           </Card>
         </div>
-      </div>
+      </Container>
     </DefaultLayout>
   );
 }

@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import { Button } from "~/components/ui/button";
 import { ModeToggle } from "~/components/ui/mode-toggle";
 
+import Container from "../container";
+
 export interface DefaultLayoutProps {
   children: ReactNode;
 }
@@ -12,7 +14,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <div className="relative flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-50 w-full border-border/40">
-        <div className="container flex h-14 mx-auto items-center">
+        <Container className="flex h-14 mx-auto items-center">
           <Link
             to="/"
             className="mr-4 font-bold text-lg text-primary hover:text-primary/80 lg:mr-6"
@@ -48,7 +50,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
           <div className="flex flex-1 justify-end items-center">
             <ModeToggle />
           </div>
-        </div>
+        </Container>
       </header>
       <main className="flex-1">{children}</main>
     </div>
